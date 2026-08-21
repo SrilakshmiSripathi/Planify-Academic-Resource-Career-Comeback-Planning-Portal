@@ -10,6 +10,26 @@
 
 ---
 
+## 📸 Screenshots & Interface Preview
+
+<!-- Screenshot Placeholders: Replace paths with actual image URLs or files in docs/screenshots/ -->
+<div align="center">
+
+### 🎯 Portal Overview & Target Deadline Engine
+![Planify Portal Overview - Target Deadline & Working Hours](docs/screenshots/overview.png)
+*Real-time working hours calculation, target deadline countdown, and interactive time cutoff simulator.*
+
+<br/>
+
+| 📅 Detailed Day Schedule View | 📊 12-Month Academic Heatmap |
+| :---: | :---: |
+| ![Day View Timeline](docs/screenshots/day-view.png) | ![Year View Heatmap](docs/screenshots/year-view.png) |
+| *Hour-by-hour shift timeline & live pulse tracker* | *Semester 1 & 2 capacity and milestone distribution* |
+
+</div>
+
+---
+
 ## 🎯 The "Why": Why Google Calendar Fails Career Comebacks
 
 For non-working parents or career-returners orchestrating a comeback into the workforce, **time is the most non-renewable, precious capital**. Balancing household management, childcare logistics, school schedules, and dedicated job search/upskilling blocks is a delicate, high-stakes equilibrium.
