@@ -16,7 +16,7 @@
 <div align="center">
 
 ### 🎯 Portal Overview & Target Deadline Engine
-![Planify Portal Overview - Target Deadline & Working Hours](docs/screenshots/overview.png)
+![Planify Portal Overview - Target Deadline & Working Hours](docs/screenshots/main.png)
 *Real-time working hours calculation, target deadline countdown, and interactive time cutoff simulator.*
 
 <br/>
@@ -86,10 +86,9 @@ Accurately maps every milestone from `docs/Calendars.pdf`:
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 19 + TypeScript (ESNext / Strict Type Checking)
-- **Build Tool**: Vite 8.2 (Lightning-fast HMR & optimized production bundling)
-- **Styling**: Modern Vanilla CSS Design System (Glassmorphism, custom color tokens, responsive grid)
-- **Typography**: Plus Jakarta Sans & JetBrains Mono
+- **Framework**: React 19 + TypeScript
+- **Build Tool**: Vite 8.2
+- **Styling**: Tailwind CSS
 
 ---
 
@@ -101,8 +100,8 @@ Accurately maps every milestone from `docs/Calendars.pdf`:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/SrilakshmiSripathi/school-days-or-not-portal.git
-cd school-days-or-not-portal
+git clone https://github.com/SrilakshmiSripathi/planify-academic-resource-career-comeback-planning-portal.git
+cd planify-academic-resource-career-comeback-planning-portal
 ```
 
 ### 2. Install Dependencies
@@ -143,9 +142,8 @@ npm run preview
 > This application is an independent resource planning and time-budgeting tool developed for personal career planning and schedule optimization. While calendar milestones are mapped directly from the Center Grove Community School Corporation 2026–2027 published calendar, users should always cross-reference official district announcements for weather delays, emergency cancellations, or revised administrative dates.
 
 ### License
-This project is open-source and licensed under the **[MIT License](LICENSE)**.
+This project is orchestration of AI generated content a wrapper for Calendar data source. Non Licensed. Use at your own risk. 
 
 ```
-MIT License
-Copyright (c) 2026 Srilakshmi Sripathi
+Un-licensed (c) 2026 Srilakshmi Sripathi
 ```
