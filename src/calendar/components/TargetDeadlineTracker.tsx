@@ -10,11 +10,8 @@ interface TargetDeadlineTrackerProps {
 }
 
 const DEADLINE_PRESETS = [
-  { label: 'Q1 End', date: '2026-10-02', desc: 'Oct 2, 2026' },
-  { label: 'Sem 1 End', date: '2026-12-18', desc: 'Dec 18, 2026' },
-  { label: 'Q3 End', date: '2027-03-10', desc: 'Mar 10, 2027' },
-  { label: 'Sem 2 End', date: '2027-05-27', desc: 'May 27, 2027' },
-  { label: 'Graduation', date: '2027-06-06', desc: 'Jun 6, 2027' }
+  { label: 'CKA', date: '2026-10-30', desc: 'Oct 30, 2026' },
+  { label: 'PCA', date: '2026-11-27', desc: 'Nov 27, 2026' },
 ]
 
 export const TargetDeadlineTracker: React.FC<TargetDeadlineTrackerProps> = ({

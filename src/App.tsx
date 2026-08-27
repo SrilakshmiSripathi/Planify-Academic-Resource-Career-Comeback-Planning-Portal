@@ -66,8 +66,9 @@ export function App() {
 
   // Compute Working Hours for Selected Day
   const dayCalc = useMemo(() => {
-    return calculateDayHours(selectedDate, referenceDate, referenceTimeMinutes)
-  }, [selectedDate, referenceDate, referenceTimeMinutes])
+    // The day view simulates the selected day's remaining time through 6 PM.
+    return calculateDayHours(selectedDate, selectedDate, referenceTimeMinutes)
+  }, [selectedDate, referenceTimeMinutes])
 
   // Compute Working Hours for Selected Month
   const monthCalc = useMemo(() => {
