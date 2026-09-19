@@ -1,6 +1,7 @@
 import React from 'react'
 import type { DayHoursCalculation, MonthHoursCalculation } from '../types'
 import { formatDecimalHours, formatHoursMinutes } from '../workHoursUtils'
+import { getCKAWeekTopic, getStudyTheme } from '../studySchedule'
 
 interface MonthViewProps {
   monthCalc: MonthHoursCalculation
@@ -176,7 +177,26 @@ export const MonthView: React.FC<MonthViewProps> = ({
                   </span>
                 </div>
 
-                {/* Dynamic Future Available Breakdown */}
+                {/* Study Theme Badge */}
+              {(() => {
+                const theme = getStudyTheme(dayInfo.dateStr)
+                const ckaTopic = theme.dayOfWeek === 1 ? getCKAWeekTopic(dayInfo.dateStr) : null
+                const tooltipText = ckaTopic
+                  ? `Week ${ckaTopic.weekNum}: ${ckaTopic.focus}`
+                  : theme.description
+                return (
+                  <div
+                    className="cell-study-theme-badge"
+                    style={{ color: theme.color, borderColor: theme.borderColor, background: theme.bgColor }}
+                    title={tooltipText}
+                  >
+                    <span className="study-theme-emoji">{theme.emoji}</span>
+                    <span className="study-theme-short">
+                      {ckaTopic ? `CKA W${ckaTopic.weekNum}` : theme.shortName}
+                    </span>
+                  </div>
+                )
+              })()}
                 <div className="cell-future-sub">
                   {isRefDate ? (
                     <span className="future-live-chip" title="Remaining today from current cutoff">

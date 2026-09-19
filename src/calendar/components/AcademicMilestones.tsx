@@ -18,7 +18,7 @@ export const AcademicMilestones: React.FC<AcademicMilestonesProps> = ({
           const isSelected = event.date === selectedDate
           return (
             <button
-              key={event.id}
+              key={event.date}
               className={`milestone-chip ${isSelected ? 'active' : ''}`}
               style={{
                 borderColor: event.color,

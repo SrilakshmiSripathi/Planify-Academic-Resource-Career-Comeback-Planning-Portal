@@ -7,6 +7,7 @@ import {
   formatMinutesTo12h,
   toMinutesFromMidnight
 } from '../workHoursUtils'
+import { getCKAWeekTopic, getStudyTheme } from '../studySchedule'
 
 interface DayViewProps {
   dayCalc: DayHoursCalculation
@@ -103,6 +104,57 @@ export const DayView: React.FC<DayViewProps> = ({
           </div>
         )}
       </div>
+
+      {/* Study Theme Panel */}
+      {(() => {
+        const theme = getStudyTheme(dayInfo.dateStr)
+        const ckaTopic = theme.dayOfWeek === 1 ? getCKAWeekTopic(dayInfo.dateStr) : null
+        return (
+          <div
+            className="study-theme-panel"
+            style={{ borderColor: theme.borderColor, background: theme.bgColor }}
+          >
+            <div className="stp-header">
+              <div className="stp-icon-name">
+                <span className="stp-emoji">{theme.emoji}</span>
+                <div>
+                  <div className="stp-label">Today's Study Theme</div>
+                  <div className="stp-name" style={{ color: theme.color }}>{theme.name}</div>
+                </div>
+              </div>
+              {theme.resource && (
+                <a
+                  href={theme.resource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="stp-resource-link"
+                  style={{ color: theme.color, borderColor: theme.borderColor }}
+                >
+                  {theme.resourceLabel} ↗
+                </a>
+              )}
+            </div>
+            <p className="stp-description">{theme.description}</p>
+            {ckaTopic && (
+              <div className="stp-cka-week">
+                <span className="stp-cka-week-label" style={{ color: theme.color }}>
+                  Week {ckaTopic.weekNum} — {ckaTopic.focus}
+                </span>
+                <ul className="stp-cka-subtopics">
+                  {ckaTopic.subTopics.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {theme.isFlex && (
+              <p className="stp-flex-note">
+                Use this block to catch up on any subject, tackle a weak area, or rest.
+              </p>
+            )}
+          </div>
+        )
+      })()}
 
       {/* Shifts Breakdown Grid */}
       <div className="shifts-breakdown-section">

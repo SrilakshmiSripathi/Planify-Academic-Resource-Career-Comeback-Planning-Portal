@@ -10,7 +10,7 @@ interface TargetDeadlineTrackerProps {
 }
 
 const DEADLINE_PRESETS = [
-  { label: 'CKA', date: '2026-10-30', desc: 'Oct 30, 2026' },
+  { label: '☸️ CKA Exam', date: '2026-10-31', desc: 'Oct 31, 2026' },
   { label: 'PCA', date: '2026-11-27', desc: 'Nov 27, 2026' },
 ]
 

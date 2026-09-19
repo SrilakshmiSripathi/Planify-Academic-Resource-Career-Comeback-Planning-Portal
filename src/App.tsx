@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
-import { AcademicMilestones } from './calendar/components/AcademicMilestones'
 import { DayView } from './calendar/components/DayView'
 import { EventLegend } from './calendar/components/EventLegend'
 import { Header } from './calendar/components/Header'
@@ -29,8 +28,8 @@ export function App() {
   const [referenceTimeMinutes, setReferenceTimeMinutes] = useState<number>(15 * 60 + 29) // 3:29 PM
   const [isLiveTime, setIsLiveTime] = useState<boolean>(true)
 
-  // Target Deadline Date (Default: Oct 2, 2026 End of Q1, or custom date)
-  const [deadlineDate, setDeadlineDate] = useState<string>('2026-10-02')
+  // Target Deadline Date (Default: Oct 31, 2026 — CKA Exam Day)
+  const [deadlineDate, setDeadlineDate] = useState<string>('2026-10-31')
 
   // Live timer interval to keep current clock up to date
   useEffect(() => {
@@ -131,8 +130,13 @@ export function App() {
   }
 
   const handleJumpToday = () => {
-    setSelectedDate('2026-08-20')
-    setReferenceDate('2026-08-20')
+    const estDateStr = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).format(new Date())
+    setSelectedDate(estDateStr)
     setReferenceTimeMinutes(15 * 60 + 29)
   }
 
@@ -171,29 +175,6 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="portal-main-content">
-        {/* Key Academic Milestones Quick Jump Bar */}
-        <AcademicMilestones
-          selectedDate={selectedDate}
-          onSelectDate={(date) => {
-            setSelectedDate(date)
-          }}
-        />
-
-        {/* Dynamic Future Working Hours & Statistics Banner */}
-        <StatsBanner
-          viewMode={viewMode}
-          dayCalc={dayCalc}
-          monthCalc={monthCalc}
-          yearCalc={yearCalc}
-        />
-
-        {/* Target Deadline Interactive Calculator & Time Remaining Engine */}
-        <TargetDeadlineTracker
-          deadlineDate={deadlineDate}
-          setDeadlineDate={setDeadlineDate}
-          deadlineCalc={deadlineCalc}
-          referenceDate={referenceDate}
-        />
 
         {/* Time Cutoff Scrubber / Future Available Simulator */}
         <TimeControls
@@ -205,6 +186,24 @@ export function App() {
           isLiveTime={isLiveTime}
           setIsLiveTime={setIsLiveTime}
         />
+
+
+        {/* Target Deadline Interactive Calculator & Time Remaining Engine */}
+        <TargetDeadlineTracker
+          deadlineDate={deadlineDate}
+          setDeadlineDate={setDeadlineDate}
+          deadlineCalc={deadlineCalc}
+          referenceDate={referenceDate}
+        />
+
+        {/* Dynamic Future Working Hours & Statistics Banner */}
+        <StatsBanner
+          viewMode={viewMode}
+          dayCalc={dayCalc}
+          monthCalc={monthCalc}
+          yearCalc={yearCalc}
+        />
+
 
         {/* Active Calendar View Content */}
         <div className="calendar-views-wrapper">

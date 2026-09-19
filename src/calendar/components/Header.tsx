@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Quick Date Picker */}
+        {/* Quick Date Selector */}
         <div className="quick-date-selector">
           <label htmlFor="quick-date-input" className="quick-date-label">
             Jump to:
@@ -113,8 +113,24 @@ export const Header: React.FC<HeaderProps> = ({
               if (e.target.value) setSelectedDate(e.target.value)
             }}
             min="2026-07-01"
-            max="2027-06-30"
+            max="2029-06-30"
           />
+          <button
+            type="button"
+            className="btn-today-est"
+            title="Pick a Date to Jump:"
+            onClick={() => {
+              const estDateStr = new Intl.DateTimeFormat('en-CA', {
+                timeZone: 'America/New_York',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+              }).format(new Date())
+              setSelectedDate(estDateStr)
+            }}
+          >
+            Today
+          </button>
         </div>
 
         {/* View Switcher Tabs */}
